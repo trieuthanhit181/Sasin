@@ -125,16 +125,17 @@ Tooltip có nội dung-->
     <li class="line"></li>
 
     <li><a style="width:300px;height:0.1px;"></a></li>
-    <li><a class="" href="menu.html">MENU</a>
+    <li><a class="" href="">MENU</a>
         <ul>
-            
-            <li><a href="menu\mi-cay-7-cap-do-1.html">Mì Cay 7 Cấp Độ</a>
+          
+            <li><a href="menu_micay.aspx">Mì Cay 7 Cấp Độ</a>
                 
             </li>
-            <li><a href="menu\lau-2.html">Lẩu</a>
+        
+            <li><a href="menu_lau.aspx">Lẩu</a>
                 
             
-            <li><a href="menu\thuc-uong-12.html">Thức Uống</a>
+            <li><a href="menu_nuoc.aspx">Thức Uống</a>
                 
             </li>
         </ul>	
