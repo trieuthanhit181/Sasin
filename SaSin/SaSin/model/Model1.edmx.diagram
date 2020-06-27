@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="2b4bc153edb44ae4b6fca58158027fb9" Name="Diagram1">
+        <EntityTypeShape EntityType="NHAHANGModel.BAN_AN" Width="1.5" PointX="3.75" PointY="4.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="NHAHANGModel.CHITIETHD" Width="1.5" PointX="7.75" PointY="0.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="NHAHANGModel.CHUCVU" Width="1.5" PointX="0.875" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="NHAHANGModel.HOADON" Width="1.5" PointX="5.25" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="NHAHANGModel.KHACHHANG" Width="1.5" PointX="0.625" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="NHAHANGModel.LOAIMON" Width="1.5" PointX="6.875" PointY="4.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="NHAHANGModel.MONAN" Width="1.5" PointX="8.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="NHAHANGModel.NHANVIEN" Width="1.5" PointX="3" PointY="0.625" IsExpanded="true" />
+        <AssociationConnector Association="NHAHANGModel.FK__HOADON__MaBan__5812160E" ManuallyRouted="false" />
+        <AssociationConnector Association="NHAHANGModel.FK__CHITIETHD__MaHD__5CD6CB2B" ManuallyRouted="false" />
+        <AssociationConnector Association="NHAHANGModel.FK__CHITIETHD__MaMon__5BE2A6F2" ManuallyRouted="false" />
+        <AssociationConnector Association="NHAHANGModel.FK__NHANVIEN__MaCV__59FA5E80" ManuallyRouted="false" />
+        <AssociationConnector Association="NHAHANGModel.FK__HOADON__MaKH__571DF1D5" ManuallyRouted="false" />
+        <AssociationConnector Association="NHAHANGModel.FK__HOADON__MaNV__59063A47" ManuallyRouted="false" />
+        <AssociationConnector Association="NHAHANGModel.FK__MONAN__MaLoaiMon__5AEE82B9" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
