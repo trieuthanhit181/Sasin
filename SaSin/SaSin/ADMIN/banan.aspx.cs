@@ -30,26 +30,42 @@ namespace SaSin.ADMIN
         }
         protected void Button1_Click(object sender, EventArgs e)
         {
-           
-            var ttdk = new BAN_AN();
-            ttdk.BanSo = TextBox_banso.Text;
-            ttdk.SoGhe = int.Parse(TextBox_soghe.Text);
+           string banso = TextBox_banso.Text;
+           string soghe = TextBox_banso.Text;
+           if (banso.Equals("") || soghe.Equals(""))
+           {
+               Response.Write("<script>alert('Vui lòng nhập đầy đủ thông tin ! ')</script>");
+            }
+           else
+           {
+               try
+               {
+                   var ttdk = new BAN_AN();
+                   ttdk.BanSo = TextBox_banso.Text;
+                   ttdk.SoGhe = int.Parse(TextBox_soghe.Text);
 
-            db.BAN_AN.Add(ttdk);
+                   db.BAN_AN.Add(ttdk);
+
+                   var a = db.SaveChanges();
+                   load_Data();
+                   if (a > 0)
+                   {
+                       tb_maban.Text = "";
+                       TextBox_banso.Text = "";
+                       TextBox_soghe.Text = "";
+                       Response.Write("<script>alert('Bạn đã thêm thành công ! ')</script>");
+                   }
+                   else
+                   {
+                       Response.Write("<script>alert('Bạn đã thêm không thành công ! ')</script>");
+                   }
+                }
+               catch (Exception exception)
+               {
+                   Response.Write("<script>alert('Vui lòng nhập đúng bàn số hoặc số ghế ! ')</script>");
+                }
+           }
             
-            var a = db.SaveChanges();
-            load_Data();
-            if (a > 0)
-            {
-                tb_maban.Text = "";
-                TextBox_banso.Text = "";
-                TextBox_soghe.Text = "";
-                Response.Write("<script>alert('Bạn đã thêm thành công ! ')</script>");
-            }
-            else
-            {
-                Response.Write("<script>alert('Bạn đã thêm không thành công ! ')</script>");
-            }
 
         }
 
@@ -83,13 +99,37 @@ namespace SaSin.ADMIN
         }
         protected void btnupdate_Click(object sender, EventArgs e)
         {
-            var ban = new BAN_AN { MaBan = int.Parse(tb_maban.Text), BanSo = TextBox_banso.Text,SoGhe = int.Parse(TextBox_soghe.Text) };
-            db.BAN_AN.AddOrUpdate(ban);
-            db.SaveChanges();
-            load_Data();
-            tb_maban.Text = "";
-            TextBox_banso.Text = "";
-            TextBox_soghe.Text = "";
+            string banso = TextBox_banso.Text;
+            string soghe = TextBox_banso.Text;
+            if (banso.Equals("") || soghe.Equals(""))
+            {
+                Response.Write("<script>alert('Vui lòng nhập đầy đủ thông tin ! ')</script>");
+            }
+            else
+            {
+                try
+                {
+                    var ban = new BAN_AN { MaBan = int.Parse(tb_maban.Text), BanSo = TextBox_banso.Text, SoGhe = int.Parse(TextBox_soghe.Text) };
+                    db.BAN_AN.AddOrUpdate(ban);
+                    db.SaveChanges();
+                    load_Data();
+                    tb_maban.Text = "";
+                    TextBox_banso.Text = "";
+                    TextBox_soghe.Text = "";
+                    var a = db.SaveChanges();
+                    load_Data();
+                    Response.Write("<script>alert('Bạn đã sửa thành công ! ')</script>");
+                    
+                }
+                catch (Exception exception)
+                {
+                    Response.Write("<script>alert('Vui lòng nhập đúng bàn số hoặc số ghế ! ')</script>");
+                }
+            }
+
+
+
+            
         }
 
         protected void GridView1_RowEditing(object sender, GridViewEditEventArgs e)

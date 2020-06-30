@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/ADMIN/admin_master.Master" AutoEventWireup="true" CodeBehind="Chucvu.aspx.cs" Inherits="SaSin.ADMIN.Chucvu" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/ADMIN/admin_master.Master" AutoEventWireup="true" CodeBehind="loaimonan.aspx.cs" Inherits="SaSin.ADMIN.loaimonan" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <style type="text/css">
         .auto-style1 {
@@ -16,7 +16,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <table class="w-100">
         <tr>
-            <td colspan="2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; QUẢN LÍ CHỨC VỤ NHÂN VIÊN</td>
+            <td colspan="2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; QUẢN LÍ LOẠI MÓN ĂN</td>
         </tr>
         <tr>
             <td class="auto-style1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </td>
@@ -24,17 +24,21 @@
         </tr>
         <tr>
             <td class="auto-style1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <asp:Label ID="Label1" runat="server" Text="Mã Chức Vụ :"></asp:Label>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <asp:TextBox ID="TxtMaCV" runat="server" Enabled="False"></asp:TextBox>
+                <asp:Label ID="Label1" runat="server" Text="Mã Loại Món Ăn :"></asp:Label>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <asp:TextBox ID="tb_maloaimon" runat="server" Enabled="False"></asp:TextBox>
                 &nbsp;</td>
             <td>&nbsp;</td>
         </tr>
         <tr>
-            <td class="auto-style1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Tên Chức Vụ:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp; <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
+            <td class="auto-style1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Tên Loại Món Ăn:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; <asp:TextBox ID="TextBox_loaimon" runat="server"></asp:TextBox>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             </td>
             <td></td>
+        </tr>
+        <tr>
+            <td class="auto-style1">&nbsp;</td>
+            <td>&nbsp;</td>
         </tr>
         <tr>
             <td class="auto-style1">&nbsp;</td>
@@ -53,7 +57,7 @@
             <td class="auto-style3">&nbsp;</td>
         </tr>
         <tr>
-            <td colspan="2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; DANH SÁCH CHỨC VỤ NHÂN VIÊN</td>
+            <td colspan="2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; DANH SÁCH LOẠI MÓN ĂN</td>
         </tr>
         <tr>
             <td class="auto-style1">&nbsp;</td>
@@ -65,13 +69,13 @@
         <AlternatingRowStyle BackColor="White" />
         <Columns>
             <%--<asp:CommandField ShowDeleteButton="True" ShowEditButton="True" />--%>
-            <asp:BoundField DataField="MaCV" HeaderText="Mã Chức Vụ" />
-            <asp:BoundField DataField="TenCV" HeaderText="Tên Chức Vụ" />
+            <asp:BoundField DataField="MaLoaiMon" HeaderText="Mã Loại Món Ăn " />
+            <asp:BoundField DataField="TenLoaiMon" HeaderText="Tên Loại Món Ăn " />
             <asp:TemplateField HeaderText="Tính Năng">
                 <ItemTemplate>
                     <asp:LinkButton ID="LinkButtonDelete" runat="server" OnClick="LinkButtonDelete_Click"
-                                    OnClientClick="return confirm('Bạn có muốn xóa không?')">Xóa</asp:LinkButton>
-                    <asp:HiddenField ID="HiddenFieldMaCV" runat="server" Value='<%#Eval("MaCV") %>'/>
+                                    OnClientClick="return confirm('Bạn có muốn xóa không ?')">Xóa</asp:LinkButton>
+                    <asp:HiddenField ID="HiddenFieldMaLoaiMon" runat="server" Value='<%#Eval("MaLoaiMon") %>' OnValueChanged="HiddenFieldMaLoaiMon"/>
                 
                     <asp:LinkButton ID="LinkButtonEdit" runat="server" OnClick="LinkButtonEdit_Click">Sửa</asp:LinkButton>
                 
@@ -98,3 +102,4 @@
    
 
 </asp:Content>
+

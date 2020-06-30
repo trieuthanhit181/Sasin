@@ -26,12 +26,7 @@ namespace SaSin.ADMIN
         }
         private void load_Data()
         {
-            //SqlDataAdapter da = new SqlDataAdapter("select * from CHUCVU", con);
-            //DataTable dt = new DataTable();
-            //da.Fill(dt);
-            //GridView1.DataSourceID = null;
-            //GridView1.DataSource = dt;
-            //GridView1.DataBind();
+            
             
             GridView1.DataSource = db.CHUCVUs.ToList(); 
             GridView1.DataBind();
@@ -76,12 +71,7 @@ namespace SaSin.ADMIN
 
         protected void GridView1_RowUpdating(object sender, GridViewUpdateEventArgs e)
         {
-            //GridView1.EditIndex = e.NewEditIndex;
-            //Label txtMaCV = (Label)GridView1.Rows[e.RowIndex].FindControl("MaCV");
-            //TextBox txtTenCV = GridView1.FindControl("TenCV") as TextBox;
-            //TextBox txtMaCv = GridView1.FindControl("MaCV") as TextBox;
-           // Label txtMaCV = (Label)GridView1.Rows[e.RowIndex].FindControl("MaCV");
-           // TextBox txtTenCV = (TextBox)GridView1.Rows[e.RowIndex].FindControl("TenCV");
+            
             GridViewRow row = GridView1.Rows[e.RowIndex];
             TextBox txtMaCV = ((TextBox)(GridView1.Rows[GridView1.EditIndex]).Cells[1].Controls[0]);
             string txtTenCV = (row.FindControl("txtTenCV") as TextBox).Text;//(TextBox)row.Cells[2].Controls[0];
@@ -135,12 +125,22 @@ namespace SaSin.ADMIN
 
         protected void btnupdate_Click(object sender, EventArgs e)
         {
-            var cv = new CHUCVU {MaCV = int.Parse(TxtMaCV.Text),TenCV = TextBox1.Text};
-            db.CHUCVUs.AddOrUpdate(cv);
-            db.SaveChanges();
-            load_Data();
-            TextBox1.Text = "";
-            TxtMaCV.Text = "";
+            string tencv = TextBox1.Text;
+            if (tencv.Equals(""))
+            {
+                Response.Write("<script>alert('Vui Lòng nhập tên chức vụ ')</script>");
+                TextBox1.Focus();
+            }
+            else
+            {
+                var cv = new CHUCVU { MaCV = int.Parse(TxtMaCV.Text), TenCV = TextBox1.Text };
+                db.CHUCVUs.AddOrUpdate(cv);
+                db.SaveChanges();
+                load_Data();
+                TextBox1.Text = "";
+                TxtMaCV.Text = "";
+            }
+            
         }
     }
 }

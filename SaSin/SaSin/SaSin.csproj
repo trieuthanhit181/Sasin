@@ -78,7 +78,10 @@
     <Content Include="ADMIN\banan.aspx" />
     <Content Include="ADMIN\Chucvu.aspx" />
     <Content Include="ADMIN\dangnhap.aspx" />
-    <Content Include="ADMIN\loaimon.aspx" />
+    <Content Include="ADMIN\khachhang.aspx" />
+    <Content Include="ADMIN\loaimonan.aspx" />
+    <Content Include="ADMIN\monan.aspx" />
+    <Content Include="ADMIN\nhanvien.aspx" />
     <Content Include="css\all.min.css" />
     <Content Include="css\cloudzoom.css" />
     <Content Include="css\css_jssor_slider.css" />
@@ -233,12 +236,33 @@
     <Compile Include="ADMIN\dangnhap.aspx.designer.cs">
       <DependentUpon>dangnhap.aspx</DependentUpon>
     </Compile>
-    <Compile Include="ADMIN\loaimon.aspx.cs">
-      <DependentUpon>loaimon.aspx</DependentUpon>
+    <Compile Include="ADMIN\khachhang.aspx.cs">
+      <DependentUpon>khachhang.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="ADMIN\loaimon.aspx.designer.cs">
-      <DependentUpon>loaimon.aspx</DependentUpon>
+    <Compile Include="ADMIN\khachhang.aspx.designer.cs">
+      <DependentUpon>khachhang.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ADMIN\loaimonan.aspx.cs">
+      <DependentUpon>loaimonan.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ADMIN\loaimonan.aspx.designer.cs">
+      <DependentUpon>loaimonan.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ADMIN\monan.aspx.cs">
+      <DependentUpon>monan.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ADMIN\monan.aspx.designer.cs">
+      <DependentUpon>monan.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ADMIN\nhanvien.aspx.cs">
+      <DependentUpon>nhanvien.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ADMIN\nhanvien.aspx.designer.cs">
+      <DependentUpon>nhanvien.aspx</DependentUpon>
     </Compile>
     <Compile Include="gioithieu.aspx.cs">
       <DependentUpon>gioithieu.aspx</DependentUpon>

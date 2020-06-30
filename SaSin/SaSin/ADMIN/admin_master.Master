@@ -60,7 +60,7 @@
                 <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <a class="collapse-item" href="Chucvu.aspx">Chức Vụ</a>
-                        <a class="collapse-item" href="~/GIANGVIEN/Index">Quản lí nhân viên</a>
+                        <a class="collapse-item" href="nhanvien.aspx">Quản lí nhân viên</a>
 
 
                     </div>
@@ -75,8 +75,8 @@
                 </a>
                 <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item" href="~/HeDaoTao/Index">Quản lí loại món ăn</a>
-                        <a class="collapse-item" href="~/KHOA/Index">Quản lí món ăn</a>
+                        <a class="collapse-item" href="loaimonan.aspx">Quản lí loại món ăn</a>
+                        <a class="collapse-item" href="monan.aspx">Quản lí món ăn</a>
                         
                     </div>
                 </div>
@@ -85,19 +85,25 @@
             <li class="nav-item">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo1" aria-expanded="true" aria-controls="collapseTwo1">
                     <i class="fas fa-bars"></i>
-                    <span>QUẢN LÍ BÀN ĂN</span>
+                    <span>QUẢN HÓA ĐƠN</span>
                 </a>
                 <div id="collapseTwo1" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
 
-                        <a class="collapse-item" href="~/ChuVu/Index">QL bàn ăn</a>
-                        <a class="collapse-item" href="~/ChuVu/Index">QL loại bàn ăn</a>
-                       
+                        <a class="collapse-item" href="banan.aspx">QL bàn ăn</a>
+                        <a class="collapse-item" href="">QL hóa đơn</a>
+                        <a class="collapse-item" href="">QL chi tiết hóa đơn</a>
 
                     </div>
                 </div>
             </li>
-
+            <li class="nav-item">
+                <a class="nav-link" href="khachhang.aspx">
+                    <i class="fas fa-user-friends"></i>
+                    <span>QUẢN LÍ KHÁCH HÀNG</span>
+                </a>
+            </li>
+            
             <!-- Divider -->
             <hr class="sidebar-divider">
 
