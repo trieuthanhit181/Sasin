@@ -145,6 +145,12 @@ namespace SaSin.ADMIN
             string mota = TextBox_mota.Text;
             string maloaimon = DropDownList1.SelectedItem.Value;
 
+            if (string.IsNullOrEmpty(hinhanh))
+            {
+                var mamon = int.Parse(Txt_ma.Text);
+                var monan = db.MONANs.FirstOrDefault(x => x.MaMon == mamon);
+                hinhanh = monan.HinhAnh;
+            }
 
             if (ten.Equals("") || dongia.Equals("") || dvt.Equals("") || maloaimon.Equals(""))
             {
