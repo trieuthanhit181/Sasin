@@ -133,7 +133,7 @@ namespace SaSin.ADMIN
             TextBox_dongia.Text = mon.DonGia.ToString();
             TextBox_dvt.Text = mon.DonViTinh;
             TextBox_mota.Text = mon.MoTa;
-           
+            //FileUpload_hinhanh.FileName = mon.HinhAnh.ToString();
         }
 
         protected void btnupdate_Click(object sender, EventArgs e)

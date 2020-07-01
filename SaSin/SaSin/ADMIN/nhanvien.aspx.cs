@@ -19,6 +19,7 @@ namespace SaSin.ADMIN
             {
                 load_Data();
                 load_Datadropdown();
+                btnupdate.Enabled = false;
             }
         }
 
@@ -110,6 +111,8 @@ namespace SaSin.ADMIN
 
         protected void LinkButtonDelete_Click(object sender, EventArgs e)
         {
+            
+
             LinkButton lb = (LinkButton)sender;
             HiddenField hd = (HiddenField)lb.FindControl("HiddenFieldMaNV");
             var manv = int.Parse(hd.Value);
@@ -123,7 +126,9 @@ namespace SaSin.ADMIN
         protected void LinkButtonEdit_Click(object sender, EventArgs e)
         {
 
-            //Button1.Enabled = false;
+            Button1.Enabled = false;
+            btnupdate.Enabled = true;
+
             LinkButton lb = (LinkButton) sender;
             HiddenField hd = (HiddenField) lb.FindControl("HiddenFieldMaNV");
             var manv = int.Parse(hd.Value);
@@ -179,6 +184,10 @@ namespace SaSin.ADMIN
                     load_Data();
                     Response.Write("<script>alert('Bạn đã sửa thành công ! ')</script>");
 
+                    Button1.Enabled = true;
+                    btnupdate.Enabled = false;
+                    TextBox_taikhoan.Enabled = true;
+                    TextBox_pass.Enabled = true;
                 }
                 catch (Exception exception)
                 {
