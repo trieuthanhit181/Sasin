@@ -35,12 +35,12 @@
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 <asp:TextBox ID="Txt_ma" runat="server" Enabled="False" Width="324px"></asp:TextBox>
                 &nbsp;</td>
-            <td class="auto-style5">Loại Món Ăn :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;<asp:DropDownList ID="DropDownList1" runat="server" Width="258px">
+            <td class="auto-style5">Loại Món Ăn :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;<asp:DropDownList ID="DropDownList1" runat="server" Width="278px">
                 </asp:DropDownList>
             </td>
         </tr>
         <tr>
-            <td class="auto-style4">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Tên Món Ăn:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <td class="auto-style4">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Tên Món Ăn:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 <asp:TextBox ID="TextBox_ten" runat="server" Width="327px"></asp:TextBox>
             </td>
             <td class="auto-style5">Mô Tả :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -57,7 +57,7 @@
         </tr>
         <tr>
             <td class="auto-style2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Hình Ảnh:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <asp:FileUpload ID="FileUpload_hinhanh" runat="server" Width="332px" />
+                <asp:FileUpload ID="FileUpload_hinhanh" runat="server" Width="352px" />
             </td>
             <td class="auto-style3">&nbsp;</td>
         </tr>
@@ -78,8 +78,8 @@
             <td class="auto-style3"></td>
         </tr>
         <tr>
-            <td class="auto-style2">&nbsp;</td>
-            <td class="auto-style3">&nbsp;</td>
+            <td class="auto-style2"></td>
+            <td class="auto-style3"></td>
         </tr>
         <tr>
             <td colspan="2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; DANH SÁCH MÓN ĂN</td>
@@ -90,13 +90,13 @@
         </tr>
     </table>
     <div class="text-center">
-    <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" CellPadding="4" ForeColor="#333333" GridLines="None" ShowHeaderWhenEmpty="True" Width="100%" AllowPaging="True" AllowSorting="True" OnRowEditing="GridView1_RowEditing" OnRowUpdating="GridView1_RowUpdating" OnSelectedIndexChanging="GridView1_SelectedIndexChanging" OnSelectedIndexChanged="GridView1_SelectedIndexChanged1">
+    <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" CellPadding="4" ForeColor="#333333" GridLines="None" ShowHeaderWhenEmpty="True" Width="100%" AllowPaging="True" AllowSorting="True" OnRowEditing="GridView1_RowEditing">
         <AlternatingRowStyle BackColor="White" />
         <Columns>
             <%--<asp:CommandField ShowDeleteButton="True" ShowEditButton="True" />--%>
             <asp:BoundField DataField="MaMon" HeaderText="Mã Món Ăn" />
             <asp:BoundField DataField="TenMon" HeaderText="Tên Món Ăn" />
-            <asp:BoundField DataField="DonViTinh" HeaderText="Đon Vị Tính" />
+            <asp:BoundField DataField="DonViTinh" HeaderText="Đơn Vị Tính" />
             <asp:TemplateField HeaderText="Hình ảnh">
                 <ItemTemplate>
                     <asp:Image ID="Image1" runat="server" ImageUrl='<%#Eval("HinhAnh") %>' Width="80px" />
@@ -109,7 +109,7 @@
                 <ItemTemplate>
                     <asp:LinkButton ID="LinkButtonDelete" runat="server" OnClick="LinkButtonDelete_Click"
                                     OnClientClick="return confirm('Bạn có muốn xóa không?')">Xóa</asp:LinkButton>
-                    <asp:HiddenField ID="HiddenFieldMaMon" runat="server" Value='<%#Eval("MaMon") %>' OnValueChanged="HiddenFieldMaMon_ValueChanged"/>
+                    <asp:HiddenField ID="HiddenFieldMaMon" runat="server" Value='<%#Eval("MaMon") %>' />
                 
                     <asp:LinkButton ID="LinkButtonEdit" runat="server" OnClick="LinkButtonEdit_Click">Sửa</asp:LinkButton>
                 

@@ -25,7 +25,7 @@
     <script src="../js/jquery.min.js"></script>
     
 </head>
-<body>
+<body id="bigpage">
     <!-- Page Wrapper -->
     <div id="wrapper">
 
@@ -81,7 +81,18 @@
                     </div>
                 </div>
             </li>
-
+            <li class="nav-item">
+                <a class="nav-link" href="khachhang.aspx">
+                    <i class="fas fa-user-friends"></i>
+                    <span>QUẢN LÍ KHÁCH HÀNG</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="banan.aspx">
+                    <i class="fas fa-bars"></i>
+                    <span>QUẢN LÍ BÀN ĂN</span>
+                </a>
+            </li>
             <li class="nav-item">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo1" aria-expanded="true" aria-controls="collapseTwo1">
                     <i class="fas fa-bars"></i>
@@ -89,20 +100,14 @@
                 </a>
                 <div id="collapseTwo1" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-
-                        <a class="collapse-item" href="banan.aspx">QL bàn ăn</a>
+ 
                         <a class="collapse-item" href="">QL hóa đơn</a>
                         <a class="collapse-item" href="">QL chi tiết hóa đơn</a>
 
                     </div>
                 </div>
             </li>
-            <li class="nav-item">
-                <a class="nav-link" href="khachhang.aspx">
-                    <i class="fas fa-user-friends"></i>
-                    <span>QUẢN LÍ KHÁCH HÀNG</span>
-                </a>
-            </li>
+            
             
             <!-- Divider -->
             <hr class="sidebar-divider">
@@ -156,28 +161,6 @@
 
                         
 
-                        <div class="topbar-divider d-none d-sm-block"></div>
-
-                        <!-- Nav Item - User Information -->
-                        <li class="nav-item dropdown no-arrow">
-                            <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <span class="mr-2 d-none d-lg-inline text-gray-600 small"><i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i> <span id="tenuser">Valerie Luna</span></span>
-                                
-                            </a>
-                            <!-- Dropdown - User Information -->
-                            <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
-                                <a class="dropdown-item" href="#">
-                                    <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
-                                  Thông tin
-                                </a>
-                                <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
-                                    <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
-                                    Đăng xuất
-                                </a>
-                            </div>
-                        </li>
-
                     </ul>
 
                 </nav>
@@ -205,28 +188,12 @@
 </div>
 <!-- End of Page Wrapper -->
 <!-- Scroll to Top Button-->
-<a class="scroll-to-top rounded" href="#page-top">
+<a class="scroll-to-top rounded" href="#bigpage">
     <i class="fas fa-angle-up"></i>
 </a><li class="nav-item dropdown no-arrow mx-1">
 
 <!-- Logout Modal-->
-<div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Bạn muốn đăng xuất?</h5>
-                <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">×</span>
-                </button>
-            </div>
-            <div class="modal-body">Bạn có muốn đăng xuất không?.</div>
-            <div class="modal-footer">
-                <button class="btn btn-secondary" type="button" data-dismiss="modal">Hủy</button>
-                <button id="iddangxuat"class="btn btn-primary">Đăng Xuất</button>
-            </div>
-        </div>
-    </div>
-</div>
+
 <!-- Bootstrap core JavaScript-->
     <script src="../js/bootstrap.bundle.min.js"></script>
 

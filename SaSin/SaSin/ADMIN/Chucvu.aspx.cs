@@ -13,16 +13,17 @@ namespace SaSin.ADMIN
 {
     public partial class Chucvu : System.Web.UI.Page
     {
-        SqlConnection con = new SqlConnection(@"Data Source=.;Initial Catalog=NHAHANG;Integrated Security=True");
+       
         NHAHANGEntities db = new NHAHANGEntities();
         protected void Page_Load(object sender, EventArgs e)
         {
             if (IsPostBack == false)
             {
                 load_Data();
+                btnupdate.Enabled = false;
             }
 
-            load_Data();
+            
         }
         private void load_Data()
         {
@@ -47,12 +48,13 @@ namespace SaSin.ADMIN
                 try
                 {
 
-                    SqlCommand cmd = new SqlCommand("insert into CHUCVU(TenCV)values(N'" + TextBox1.Text + "')", con);
-                    con.Open();
-                    cmd.ExecuteNonQuery();
-                    con.Close();
-                    Response.Write("<script>alert('Đã thêm thành công')</script>");
+                    var ttdk = new CHUCVU();
+                    ttdk.TenCV = ten;
+                    db.CHUCVUs.Add(ttdk);
+                    var a = db.SaveChanges();
+                    Response.Write("<script>alert('thêm thành công')</script>");
                     load_Data();
+                   
                     TextBox1.Text = "";
                     TxtMaCV.Text = "";
                 }
@@ -69,51 +71,38 @@ namespace SaSin.ADMIN
             GridView1.EditIndex = e.NewEditIndex;
         }
 
-        protected void GridView1_RowUpdating(object sender, GridViewUpdateEventArgs e)
-        {
-            
-            GridViewRow row = GridView1.Rows[e.RowIndex];
-            TextBox txtMaCV = ((TextBox)(GridView1.Rows[GridView1.EditIndex]).Cells[1].Controls[0]);
-            string txtTenCV = (row.FindControl("txtTenCV") as TextBox).Text;//(TextBox)row.Cells[2].Controls[0];
-
-            NHAHANGEntities db = new NHAHANGEntities();
-            var cv = new CHUCVU {TenCV = txtTenCV, MaCV = int.Parse(txtMaCV.Text)};
-            db.CHUCVUs.AddOrUpdate(cv);
-            load_Data();
-        }
-
-        protected void GridView1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            var a = "11";
-        }
-
-        protected void GridView1_SelectedIndexChanging(object sender, GridViewSelectEventArgs e)
-        {
-            var a = "11";
-        }
-
+        
+        
         protected void LinkButtonDelete_Click(object sender, EventArgs e)
         {
            
             LinkButton lb = (LinkButton) sender;
             HiddenField hd = (HiddenField)lb.FindControl("HiddenFieldMaCV");
             var macv = int.Parse(hd.Value);
-            CHUCVU cv = db.CHUCVUs.FirstOrDefault(c => c.MaCV == macv);
-            db.CHUCVUs.Remove(cv);
-            db.SaveChanges();
-            load_Data();
-            TextBox1.Text = "";
-            TxtMaCV.Text = "";
+
+            try
+            {
+                CHUCVU cv = db.CHUCVUs.FirstOrDefault(c => c.MaCV == macv);
+                db.CHUCVUs.Remove(cv);
+                db.SaveChanges();
+                load_Data();
+                TextBox1.Text = "";
+                TxtMaCV.Text = "";
+            }
+            catch (Exception exception)
+            {
+                Response.Write("<script>alert('Dữ liệu này đang được sử dụng không được xóa ')</script>");
+            }
+
+            
         }
 
-        protected void GridView1_SelectedIndexChanged1(object sender, EventArgs e)
-        {
-
-        }
+       
 
         protected void LinkButtonEdit_Click(object sender, EventArgs e)
         {
-            
+            Button1.Enabled = false;
+            btnupdate.Enabled = true;
             LinkButton lb = (LinkButton)sender;
             HiddenField hd = (HiddenField)lb.FindControl("HiddenFieldMaCV");
             var macv = int.Parse(hd.Value);
@@ -125,6 +114,7 @@ namespace SaSin.ADMIN
 
         protected void btnupdate_Click(object sender, EventArgs e)
         {
+            string ma =TxtMaCV.Text;
             string tencv = TextBox1.Text;
             if (tencv.Equals(""))
             {
@@ -136,9 +126,12 @@ namespace SaSin.ADMIN
                 var cv = new CHUCVU { MaCV = int.Parse(TxtMaCV.Text), TenCV = TextBox1.Text };
                 db.CHUCVUs.AddOrUpdate(cv);
                 db.SaveChanges();
+                Response.Write("<script>alert('sửa thành công')</script>");
                 load_Data();
                 TextBox1.Text = "";
                 TxtMaCV.Text = "";
+                Button1.Enabled = true;
+                btnupdate.Enabled = false;
             }
             
         }

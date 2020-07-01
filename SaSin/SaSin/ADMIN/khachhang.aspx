@@ -71,7 +71,7 @@
         </tr>
     </table>
     <div class="text-center">
-    <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" CellPadding="4" ForeColor="#333333" GridLines="None" ShowHeaderWhenEmpty="True" Width="100%" AllowPaging="True" AllowSorting="True" OnRowEditing="GridView1_RowEditing" OnRowUpdating="GridView1_RowUpdating" OnSelectedIndexChanging="GridView1_SelectedIndexChanging" OnSelectedIndexChanged="GridView1_SelectedIndexChanged1">
+    <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" CellPadding="4" ForeColor="#333333" GridLines="None" ShowHeaderWhenEmpty="True" Width="100%" AllowPaging="True" AllowSorting="True" OnRowEditing="GridView1_RowEditing" >
         <AlternatingRowStyle BackColor="White" />
         <Columns>
             <%--<asp:CommandField ShowDeleteButton="True" ShowEditButton="True" />--%>
@@ -83,7 +83,7 @@
                 <ItemTemplate>
                     <asp:LinkButton ID="LinkButtonDelete" runat="server" OnClick="LinkButtonDelete_Click"
                                     OnClientClick="return confirm('Bạn có muốn xóa không?')">Xóa</asp:LinkButton>
-                    <asp:HiddenField ID="HiddenFieldMaKH" runat="server" Value='<%#Eval("MaKH") %>' OnValueChanged="HiddenFieldMaKH_ValueChanged"/>
+                    <asp:HiddenField ID="HiddenFieldMaKH" runat="server" Value='<%#Eval("MaKH") %>' />
                 
                     <asp:LinkButton ID="LinkButtonEdit" runat="server" OnClick="LinkButtonEdit_Click">Sửa</asp:LinkButton>
                 

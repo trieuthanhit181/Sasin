@@ -78,6 +78,7 @@
     <Content Include="ADMIN\banan.aspx" />
     <Content Include="ADMIN\Chucvu.aspx" />
     <Content Include="ADMIN\dangnhap.aspx" />
+    <Content Include="ADMIN\homeadmin.aspx" />
     <Content Include="ADMIN\khachhang.aspx" />
     <Content Include="ADMIN\loaimonan.aspx" />
     <Content Include="ADMIN\monan.aspx" />
@@ -104,6 +105,7 @@
     <Content Include="images\bg.png" />
     <Content Include="images\hinhanh\banner-0246.png" />
     <Content Include="images\hinhanh\logo-2662-84690.png" />
+    <Content Include="images\hinhanh\logo-mi-cay-sasin.png" />
     <Content Include="images\hinhanh\logo-sasin9017_32x32.png" />
     <Content Include="images\hinhanh\untitled-5-4255.png" />
     <Content Include="images\hinhanh\untitled-5-7866.png" />
@@ -235,6 +237,13 @@
     </Compile>
     <Compile Include="ADMIN\dangnhap.aspx.designer.cs">
       <DependentUpon>dangnhap.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ADMIN\homeadmin.aspx.cs">
+      <DependentUpon>homeadmin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ADMIN\homeadmin.aspx.designer.cs">
+      <DependentUpon>homeadmin.aspx</DependentUpon>
     </Compile>
     <Compile Include="ADMIN\khachhang.aspx.cs">
       <DependentUpon>khachhang.aspx</DependentUpon>

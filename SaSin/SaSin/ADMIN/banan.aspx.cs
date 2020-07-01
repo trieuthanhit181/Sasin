@@ -18,9 +18,10 @@ namespace SaSin.ADMIN
             if (IsPostBack == false)
             {
                 load_Data();
+                btnupdate.Enabled = false;
             }
 
-            load_Data();
+          
         }
         private void load_Data()
         {
@@ -69,26 +70,31 @@ namespace SaSin.ADMIN
 
         }
 
-        protected void HiddenFieldMaBan_ValueChanged(object sender, EventArgs e)
-        {
-
-        }
-
+        
         protected void LinkButtonDelete_Click(object sender, EventArgs e)
         {
             LinkButton lb = (LinkButton)sender;
             HiddenField hd = (HiddenField)lb.FindControl("HiddenFieldMaBan");
             var maban = int.Parse(hd.Value);
-            BAN_AN ban = db.BAN_AN.FirstOrDefault(c => c.MaBan == maban);
-            db.BAN_AN.Remove(ban);
-            db.SaveChanges();
-            load_Data();
-            tb_maban.Text = "";
-            TextBox_banso.Text = "";
-            TextBox_soghe.Text = "";
+            try
+            {
+                BAN_AN ban = db.BAN_AN.FirstOrDefault(c => c.MaBan == maban);
+                db.BAN_AN.Remove(ban);
+                db.SaveChanges();
+                load_Data();
+                tb_maban.Text = "";
+                TextBox_banso.Text = "";
+                TextBox_soghe.Text = "";
+            }
+            catch (Exception exception)
+            {
+                Response.Write("<script>alert('Dữ liệu này đang được sử dụng không được xóa ')</script>");
+            }
         }
         protected void LinkButtonEdit_Click(object sender, EventArgs e)
         {
+            Button1.Enabled = false;
+            btnupdate.Enabled = true;
             LinkButton lb = (LinkButton)sender;
             HiddenField hd = (HiddenField)lb.FindControl("HiddenFieldMaBan");
             var maban = int.Parse(hd.Value);
@@ -119,7 +125,8 @@ namespace SaSin.ADMIN
                     var a = db.SaveChanges();
                     load_Data();
                     Response.Write("<script>alert('Bạn đã sửa thành công ! ')</script>");
-                    
+                    Button1.Enabled = true;
+                    btnupdate.Enabled = false;
                 }
                 catch (Exception exception)
                 {
@@ -137,27 +144,6 @@ namespace SaSin.ADMIN
             GridView1.EditIndex = e.NewEditIndex;
         }
 
-        protected void GridView1_RowUpdating(object sender, GridViewUpdateEventArgs e)
-        {
-            GridViewRow row = GridView1.Rows[e.RowIndex];
-            TextBox txtMaban = ((TextBox)(GridView1.Rows[GridView1.EditIndex]).Cells[1].Controls[0]);
-            string txtBanSo = (row.FindControl("txtBanSo") as TextBox).Text;
-            string txtSoGhe = (row.FindControl("txtSoGhe") as TextBox).Text;
-
-            NHAHANGEntities db = new NHAHANGEntities();
-            var ban = new BAN_AN {SoGhe = int.Parse(txtMaban.Text), BanSo = txtBanSo, MaBan = int.Parse(txtMaban.Text) };
-            db.BAN_AN.AddOrUpdate(ban);
-            load_Data();
-        }
-
-        protected void GridView1_SelectedIndexChanged1(object sender, EventArgs e)
-        {
-            var a = "11";
-        }
-
-        protected void GridView1_SelectedIndexChanging(object sender, GridViewSelectEventArgs e)
-        {
-            var a = "11";
-        }
+       
     }
 }

@@ -17,9 +17,10 @@ namespace SaSin.ADMIN
             if (IsPostBack == false)
             {
                 load_Data();
+                btnupdate.Enabled = false;
             }
 
-            load_Data();
+           
         }
         private void load_Data()
         {
@@ -68,25 +69,32 @@ namespace SaSin.ADMIN
             }
         }
 
-        protected void HiddenFieldMaKH_ValueChanged(object sender, EventArgs e)
-        {
-
-        }
+       
 
         protected void LinkButtonDelete_Click(object sender, EventArgs e)
         {
             LinkButton lb = (LinkButton)sender;
             HiddenField hd = (HiddenField)lb.FindControl("HiddenFieldMaKH");
             var makh = int.Parse(hd.Value);
-            KHACHHANG kh = db.KHACHHANGs.FirstOrDefault(c => c.MaKH == makh);
-            db.KHACHHANGs.Remove(kh);
-            db.SaveChanges();
-            load_Data();
+            try
+            {
+                KHACHHANG kh = db.KHACHHANGs.FirstOrDefault(c => c.MaKH == makh);
+                db.KHACHHANGs.Remove(kh);
+                db.SaveChanges();
+                load_Data();
+            }
+            catch (Exception exception)
+            {
+                Response.Write("<script>alert('Dữ liệu này đang được sử dụng không được xóa ')</script>");
+            }
+            
             
         }
 
         protected void LinkButtonEdit_Click(object sender, EventArgs e)
         {
+            Button1.Enabled = false;
+            btnupdate.Enabled = true;
             LinkButton lb = (LinkButton)sender;
             HiddenField hd = (HiddenField)lb.FindControl("HiddenFieldMaKH");
             var makh = int.Parse(hd.Value);
@@ -121,7 +129,8 @@ namespace SaSin.ADMIN
                     var a = db.SaveChanges();
                     load_Data();
                     Response.Write("<script>alert('Bạn đã sửa thành công ! ')</script>");
-
+                    Button1.Enabled = true;
+                    btnupdate.Enabled = false;
                 }
                 catch (Exception exception)
                 {
@@ -129,31 +138,13 @@ namespace SaSin.ADMIN
                 }
             }
         }
-        protected void GridView1_RowUpdating(object sender, GridViewUpdateEventArgs e)
-        {
-            GridViewRow row = GridView1.Rows[e.RowIndex];
-            TextBox txtMaKH = ((TextBox)(GridView1.Rows[GridView1.EditIndex]).Cells[1].Controls[0]);
-            string txtTenKH = (row.FindControl("txtTenKH") as TextBox).Text;
-            string txtDiaChi = (row.FindControl("txtDiaChi") as TextBox).Text;
-            string txtSDT = (row.FindControl("txtSDT") as TextBox).Text;
-           
-            var kh = new KHACHHANG { TenKH = txtTenKH, DiaChi = txtDiaChi ,SDT = txtSDT, MaKH = int.Parse(txtMaKH.Text) };
-            db.KHACHHANGs.AddOrUpdate(kh);
-            load_Data();
-        }
-        protected void GridView1_SelectedIndexChanged1(object sender, EventArgs e)
-        {
-            var a = "11";
-        }
+       
 
         protected void GridView1_RowEditing(object sender, GridViewEditEventArgs e)
         {
             GridView1.EditIndex = e.NewEditIndex;
         }
 
-        protected void GridView1_SelectedIndexChanging(object sender, GridViewSelectEventArgs e)
-        {
-            var a = "11";
-        }
+       
     }
 }

@@ -192,57 +192,5 @@ namespace SaSin.ADMIN
             GridView1.EditIndex = e.NewEditIndex;
         }
 
-        protected void GridView1_RowUpdating(object sender, GridViewUpdateEventArgs e)
-        {
-            GridViewRow row = GridView1.Rows[e.RowIndex];
-            TextBox txtMaNV = ((TextBox)(GridView1.Rows[GridView1.EditIndex]).Cells[1].Controls[0]);
-            string txtTenNV = (row.FindControl("txtTenNV") as TextBox).Text;
-            string txtDiaChi = (row.FindControl("txtDiaChi") as TextBox).Text;
-            string txtSDT = (row.FindControl("txtSDT") as TextBox).Text;
-            string txtNgaySinh = (row.FindControl("txtNgaySinh") as TextBox).Text;
-            string txtUsername = (row.FindControl("txtUsername") as TextBox).Text;
-            string txtPassWord = (row.FindControl("txtPassWord") as TextBox).Text;
-            string txtMaCV = (row.FindControl("txtMaCV") as TextBox).Text;
-
-
-            var nv = new NHANVIEN
-            {
-                TenNV = txtTenNV,
-                DiaChi = txtDiaChi,
-                SDT = txtSDT,
-                MaNV = int.Parse(txtTenNV),
-                MaCV = int.Parse(txtMaCV),
-                PassWork = txtPassWord,
-                UserName = txtUsername,
-                NgaySinh = Convert.ToDateTime(txtNgaySinh)
-        };
-            db.NHANVIENs.AddOrUpdate(nv);
-            load_Data();
-        }
-
-        protected void GridView1_SelectedIndexChanged1(object sender, EventArgs e)
-        {
-            var a = "11";
-        }
-
-        protected void GridView1_SelectedIndexChanging(object sender, GridViewSelectEventArgs e)
-        {
-            var a = "11";
-        }
-
-        protected void HiddenFieldMaNV_ValueChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        protected void DropDownList_chucvu_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            idmacv = DropDownList_chucvu.SelectedItem.Value;
-        }
-
-        protected void DropDownList_chucvu_TextChanged(object sender, EventArgs e)
-        {
-            idmacv = DropDownList_chucvu.SelectedItem.Value;
-        }
     }
 }

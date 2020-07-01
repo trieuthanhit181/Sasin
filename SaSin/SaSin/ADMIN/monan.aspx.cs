@@ -19,14 +19,14 @@ namespace SaSin.ADMIN
             {
                 load_Data();
                 load_Datadropdown();
+                btnupdate.Enabled = false;
             }
 
-            load_Datadropdown();
-            load_Data();
+            
         }
         private void load_Datadropdown()
         {
-            //load DropDownList1 chucvu
+            //load DropDownList1 loai món ăn
             var dt = db.LOAIMONs.ToList();
             DropDownList1.DataTextField = "TenLoaiMon";
             DropDownList1.DataValueField = "MaLoaiMon";
@@ -82,9 +82,9 @@ namespace SaSin.ADMIN
                    
 
                     db.MONANs.Add(ttdk);
-
                     var a = db.SaveChanges();
                     load_Data();
+
                     if (a > 0)
                     {
                         TextBox_dongia.Text = "";
@@ -108,6 +108,8 @@ namespace SaSin.ADMIN
 
         protected void LinkButtonDelete_Click(object sender, EventArgs e)
         {
+
+
             LinkButton lb = (LinkButton)sender;
             HiddenField hd = (HiddenField)lb.FindControl("HiddenFieldMaMon");
             var mamon = int.Parse(hd.Value);
@@ -119,6 +121,9 @@ namespace SaSin.ADMIN
 
         protected void LinkButtonEdit_Click(object sender, EventArgs e)
         {
+            Button1.Enabled = false;
+            btnupdate.Enabled = true;
+
             LinkButton lb = (LinkButton)sender;
             HiddenField hd = (HiddenField)lb.FindControl("HiddenFieldMaMon");
             var mamon = int.Parse(hd.Value);
@@ -171,7 +176,8 @@ namespace SaSin.ADMIN
                     var a = db.SaveChanges();
                     load_Data();
                     Response.Write("<script>alert('Bạn đã sửa thành công ! ')</script>");
-
+                    Button1.Enabled = true;
+                    btnupdate.Enabled = false;
                 }
                 catch (Exception exception)
                 {
@@ -184,34 +190,7 @@ namespace SaSin.ADMIN
         {
             GridView1.EditIndex = e.NewEditIndex;
         }
-        //không dùng đến
-        protected void GridView1_RowUpdating(object sender, GridViewUpdateEventArgs e)
-        {
-            GridViewRow row = GridView1.Rows[e.RowIndex];
-            TextBox txtMaMon = ((TextBox)(GridView1.Rows[GridView1.EditIndex]).Cells[1].Controls[0]);
-            string txtTenMon = (row.FindControl("txtTenMon") as TextBox).Text;
-            string txtDonGia = (row.FindControl("txtDonGia") as TextBox).Text;
-            string txtDonViTinh = (row.FindControl("txtDonViTinh") as TextBox).Text;
-            string txtMoTa = (row.FindControl("txtMoTa") as TextBox).Text;
-            string txtHinhAnh = (row.FindControl("txtHinhAnh") as TextBox).Text;
-            string txtLoaiMonAn = (row.FindControl("txtLoaiMonAn") as TextBox).Text;
-            
-
-            var mon = new MONAN
-            {
-                TenMon = txtTenMon,
-                DonViTinh = txtDonViTinh,
-                DonGia = int.Parse(txtDonGia),
-                MaLoaiMon = int.Parse(txtLoaiMonAn),
-                MaMon = int.Parse(txtMaMon.Text),
-                HinhAnh = txtHinhAnh,
-                
-            };
-            db.MONANs.AddOrUpdate(mon);
-            load_Data();
-        }
-
-        
+      
         private string StartUpLoad()
         {
             string url = null;
@@ -256,19 +235,8 @@ namespace SaSin.ADMIN
             return url;
         }
 
-        protected void GridView1_SelectedIndexChanged1(object sender, EventArgs e)
-        {
-            var a = "11";
-        }
+        
 
-        protected void GridView1_SelectedIndexChanging(object sender, GridViewSelectEventArgs e)
-        {
-            var a = "11";
-        }
-
-        protected void HiddenFieldMaMon_ValueChanged(object sender, EventArgs e)
-        {
-
-        }
+        
     }
 }

@@ -82,8 +82,7 @@ Tooltip có nội dung-->
 
 <body onload="">
 <h1 class="vcard fn" style="position:absolute; top:-1000px;">mì cay sasin - mì cay 7 cấp độ Hàn Quốc</h1>
-<h2 style="position:absolute; top:-1000px;">mì cay sasin - mì cay 7 cấp độ Hàn Quốc</h2>
-<h3 style="position:absolute; top:-1000px;">mì cay sasin - mì cay 7 cấp độ Hàn Quốc</h3>
+
 
 
 
@@ -143,6 +142,8 @@ Tooltip có nội dung-->
 
     <li class="line"></li>
     <li><a class=""  href="lienhe.aspx">LIÊN HỆ</a></li>
+    <li class="line"></li>
+    <li><a class=""  href="ADMIN/dangnhap.aspx">ĐĂNG NHẬP</a></li>
 </ul>
     </div><!---END #menu-->
   
