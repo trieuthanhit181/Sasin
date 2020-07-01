@@ -78,7 +78,7 @@ namespace SaSin.ADMIN
                     ttdk.DonGia =int.Parse(TextBox_dongia.Text);
                     ttdk.MoTa = TextBox_mota.Text;
                     ttdk.MaLoaiMon = int.Parse(DropDownList1.SelectedItem.Value) ;
-                    ttdk.HinhAnh = FileUpload_hinhanh.FileName;
+                    ttdk.HinhAnh = hinhanh;
                    
 
                     db.MONANs.Add(ttdk);
@@ -240,8 +240,6 @@ namespace SaSin.ADMIN
 
             return url;
         }
-
-        
 
         
     }

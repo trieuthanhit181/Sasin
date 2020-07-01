@@ -89,8 +89,8 @@
             <td>&nbsp;</td>
         </tr>
     </table>
-    <div class="text-center">
-    <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" CellPadding="3" ShowHeaderWhenEmpty="True" Width="100%" AllowPaging="True" AllowSorting="True" OnRowEditing="GridView1_RowEditing" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px">
+    <div class="text-left">
+    <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" CellPadding="3" ShowHeaderWhenEmpty="True" Width="100%" AllowPaging="True" AllowSorting="True" OnRowEditing="GridView1_RowEditing" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px"  PageSize="100">
         <Columns>
             <%--<asp:CommandField ShowDeleteButton="True" ShowEditButton="True" />--%>
             <asp:BoundField DataField="MaMon" HeaderText="Mã Món Ăn" />
@@ -102,7 +102,7 @@
                 </ItemTemplate>
             </asp:TemplateField>
             <asp:BoundField DataField="DonGia" HeaderText="Đơn Giá" />
-            <asp:BoundField DataField="MoTa" HeaderText="Mô Tả" />
+            <asp:BoundField DataField="MoTa" HeaderText="Mô Tả"/>
             <asp:BoundField DataField="TenLoaiMon" HeaderText="Loại Món Ăn" />
             <asp:TemplateField HeaderText="Tính Năng">
                 <ItemTemplate>
