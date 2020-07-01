@@ -101,8 +101,8 @@
                 <div id="collapseTwo1" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
  
+                        <a class="collapse-item" href="">Tạo Hóa Đơn</a>
                         <a class="collapse-item" href="">QL hóa đơn</a>
-                        <a class="collapse-item" href="">QL chi tiết hóa đơn</a>
 
                     </div>
                 </div>

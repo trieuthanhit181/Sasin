@@ -13,7 +13,7 @@
             height: 26px;
             text-align: center;
             color: #663300;
-            background-color: #3399FF;
+            background-color: #66CCFF;
         }
         .auto-style5 {
             width: 156px;
@@ -35,6 +35,10 @@
             text-align: center;
             color: #663300;
             background-color: #FFFFFF;
+        }
+        .auto-style10 {
+            text-align: center;
+            background-color: #99CCFF;
         }
     </style>
 </head>
@@ -73,6 +77,18 @@
                     <td class="auto-style8" colspan="3">
                         <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="Đăng Nhập" />
                     </td>
+                </tr>
+                <tr>
+                    <td class="auto-style8" colspan="3">
+                        &nbsp;</td>
+                </tr>
+                <tr>
+                    <td class="auto-style8" colspan="3">
+                        &nbsp;</td>
+                </tr>
+                <tr>
+                    <td class="auto-style10" colspan="3">
+                        &nbsp;</td>
                 </tr>
             </table>
             

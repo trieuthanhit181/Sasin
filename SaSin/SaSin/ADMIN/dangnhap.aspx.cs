@@ -20,22 +20,32 @@ namespace SaSin.ADMIN
 
         protected void Button1_Click(object sender, EventArgs e)
         {
-            SqlConnection con = new SqlConnection(@"Data Source=.;Initial Catalog=NHAHANG;Integrated Security=True");
-            SqlDataAdapter da = new SqlDataAdapter(@"SELECT * FROM NHANVIEN WHERE UserName='" + TextBox_username.Text +
-                                                   "'AND PassWork='" + TextBox_pass.Text + "'", con);
-            DataTable dt = new DataTable();
-            da.Fill(dt);
-            if (dt.Rows.Count > 0)
+            string username = TextBox_username.Text;
+            string pass = TextBox_username.Text;
+            if (username.Equals("") || pass.Equals(""))
             {
-                Session["name"] = TextBox_username.Text;
-                Session["allow"] = true;
-                Response.Redirect("homeadmin.aspx");
-
+                Response.Write("<script>alert('Vui lòng nhập đầy đủ thông tin')</script>");
             }
             else
             {
-                Response.Write("<script>alert('Username / Password không đúng')</script>");
+                SqlConnection con = new SqlConnection(@"Data Source=.;Initial Catalog=NHAHANG;Integrated Security=True");
+                SqlDataAdapter da = new SqlDataAdapter(@"SELECT * FROM NHANVIEN WHERE UserName='" + TextBox_username.Text +
+                                                       "'AND PassWork='" + TextBox_pass.Text + "'", con);
+                DataTable dt = new DataTable();
+                da.Fill(dt);
+                if (dt.Rows.Count > 0)
+                {
+                    Session["name"] = TextBox_username.Text;
+                    Session["allow"] = true;
+                    Response.Redirect("homeadmin.aspx");
+
+                }
+                else
+                {
+                    Response.Write("<script>alert('Username / Password không đúng')</script>");
+                }
             }
+            
 
             
 
