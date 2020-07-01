@@ -28,12 +28,9 @@ namespace SaSin.ADMIN
             }
             else
             {
-                SqlConnection con = new SqlConnection(@"Data Source=.;Initial Catalog=NHAHANG;Integrated Security=True");
-                SqlDataAdapter da = new SqlDataAdapter(@"SELECT * FROM NHANVIEN WHERE UserName='" + TextBox_username.Text +
-                                                       "'AND PassWork='" + TextBox_pass.Text + "'", con);
-                DataTable dt = new DataTable();
-                da.Fill(dt);
-                if (dt.Rows.Count > 0)
+                var tk = db.NHANVIENs.FirstOrDefault(c=>c.UserName ==TextBox_username.Text && c.PassWork ==TextBox_pass.Text);
+                
+                if (tk != null)
                 {
                     Session["name"] = TextBox_username.Text;
                     Session["allow"] = true;
