@@ -229,7 +229,7 @@ div#menu_mobi
 }
 div#menu {
     position: relative;
-    background: url('../images/menu.png') center repeat-x;
+    background: url('images/menu.png') center repeat-x;
     
     height: 61px;
     line-height: 61px;
